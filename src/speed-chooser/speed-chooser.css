@@ -1,0 +1,63 @@
+.mejs__speedchooser-button, .mejs-speedchooser-button {
+    position: relative;
+}
+
+.mejs__speedchooser-button > button {
+    background: url("settings.svg") transparent no-repeat;
+    background-position: 0 1px;
+}
+
+.mejs__speedchooser-selector .ogg {
+    display: none;
+}
+
+.mejs__speedchooser-selector.onlyAudio .ogg {
+    display: block;
+}
+.mejs__speedchooser-selector.onlyAudio .mp4 {
+    display: block;
+}
+
+.mejs__speedchooser-button .mejs__speedchooser-selector, .mejs-speedchooser-button .mejs-speedchooser-selector {
+    position: absolute;
+    bottom: 40px;
+    right: -10px;
+    width: 130px;
+    /*height: 100px;*/
+    background: rgba(50,50,50,0.7);
+    border: solid 1px transparent;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.mejs__speedchooser-selector ul, .mejs-speedchooser-selector ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style-type: none !important;
+    overflow: hidden;
+}
+
+.mejs__speedchooser-selector li, .mejs-speedchooser-selector li {
+    margin: 0 0 6px 0;
+    padding: 0;
+    list-style-type: none !important;
+    display: block;
+    color: #fff;
+    overflow: hidden;
+}
+
+.mejs__speedchooser-selector input, .mejs-speedchooser-selector input {
+    clear: both;
+    float: left;
+    margin: 3px 3px 0 5px;
+}
+
+.mejs__speedchooser-selector label, .mejs-speedchooser-selector label {
+    /*width: 100px;*/
+    /*float: left;*/
+    padding: 4px 0 0 0;
+    line-height: 15px;
+    font-size: 10px;
+}
