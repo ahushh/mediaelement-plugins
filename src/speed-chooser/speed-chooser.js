@@ -65,7 +65,7 @@ Object.assign(MediaElementPlayer.prototype, {
 		for (let i = 0, total = sources.length; i < total; i++) {
 			const src = sources[i];
 			if (src.type !== undefined && typeof media.canPlayType === 'function') {
-				player.addSourceButton(src.src, src.title, src.type, media.src === src.src, media.speed);
+				player.addSourceButton(src.src, src.title, src.type, media.src === src.src, src.dataset.speed);
 			}
 		}
 
