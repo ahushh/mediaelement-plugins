@@ -153,7 +153,7 @@ Object.assign(MediaElementPlayer.prototype, {
 						paused = media.paused,
 						canPlayAfterSourceSwitchHandler = () => {
 							if (!paused) {
-								media.setCurrentTime(currentTime*oldSpeed/newSpeed);
+								media.setCurrentTime(currentTime*oldSpeed/media.speed);
 								media.play();
 							}
 							media.removeEventListener('canplay', canPlayAfterSourceSwitchHandler);
