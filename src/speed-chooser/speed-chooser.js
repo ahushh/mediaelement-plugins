@@ -134,6 +134,7 @@ Object.assign(MediaElementPlayer.prototype, {
 				this.checked = true;
 
 				const otherRadios = this.closest(`.${t.options.classPrefix}speedchooser-selector`).querySelectorAll('input[type=radio]');
+				let oldSpeed = media.speed
 				media.speed = this.dataset.speed
 
 				for (let j = 0, radioTotal = otherRadios.length; j < radioTotal; j++) {
@@ -152,7 +153,7 @@ Object.assign(MediaElementPlayer.prototype, {
 						paused = media.paused,
 						canPlayAfterSourceSwitchHandler = () => {
 							if (!paused) {
-								media.setCurrentTime(currentTime);
+								media.setCurrentTime(currentTime*oldSpeed/newSpeed);
 								media.play();
 							}
 							media.removeEventListener('canplay', canPlayAfterSourceSwitchHandler);
