@@ -63,7 +63,7 @@ Object.assign(MediaElementPlayer.prototype, {
 		for (var _i = 0, _total = sources.length; _i < _total; _i++) {
 			var src = sources[_i];
 			if (src.type !== undefined && typeof media.canPlayType === 'function') {
-				player.addSourceButton(src.src, src.title, src.type, media.src === src.src, parseInt(src.title.replace(/x/, '').replace(/\./, '').replace(/^2$/, '20')));
+				player.addSourceButton(src.src, src.title, src.type, media.src === src.src, parseInt(src.title.replace(/x/, '').replace(/\./, '').replace(/^2$/, '20')), parseFloat(src.title.replace(/x/, '')));
 			}
 		}
 
@@ -185,14 +185,14 @@ Object.assign(MediaElementPlayer.prototype, {
   * @param {String} type
   * @param {Boolean} isCurrent
   */
-	addSourceButton: function addSourceButton(src, label, type, isCurrent, speed) {
+	addSourceButton: function addSourceButton(src, label, type, isCurrent, speedUrl, speedValue) {
 		var t = this;
 		if (label === '' || label === undefined) {
 			label = src;
 		}
 		type = type.split('/')[1];
 
-		t.speedchooserButton.querySelector('ul').innerHTML += "<li class='" + type + " speed-" + speed + "'>" + ("<input data-speed=\"" + speed + "\" type=\"radio\" name=\"" + t.id + "_speedchooser\" id=\"" + t.id + "_speedchooser_" + label + type + "\"") + ("role=\"menuitemradio\" value=\"" + src + "\" " + (isCurrent ? 'checked="checked"' : '') + " aria-selected=\"" + isCurrent + "\"/>") + ("<label for=\"" + t.id + "_speedchooser_" + label + type + "\" aria-hidden=\"true\">" + label + "</label>") + "</li>";
+		t.speedchooserButton.querySelector('ul').innerHTML += "<li class='" + type + " speed-" + speedUrl + "'>" + ("<input data-speed=\"" + speedValue + "\" type=\"radio\" name=\"" + t.id + "_speedchooser\" id=\"" + t.id + "_speedchooser_" + label + type + "\"") + ("role=\"menuitemradio\" value=\"" + src + "\" " + (isCurrent ? 'checked="checked"' : '') + " aria-selected=\"" + isCurrent + "\"/>") + ("<label for=\"" + t.id + "_speedchooser_" + label + type + "\" aria-hidden=\"true\">" + label + "</label>") + "</li>";
 
 		t.adjustSourcechooserBox();
 	},
