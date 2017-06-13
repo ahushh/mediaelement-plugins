@@ -132,7 +132,8 @@ Object.assign(MediaElementPlayer.prototype, {
 				// set aria states
 				this.setAttribute('aria-selected', true);
 				this.checked = true;
-				jQuery('.speed-1').addClass('active')
+        console.log('hereare', total)
+        $(`.speed-${total}`).addClass('active')
 
 				const otherRadios = this.closest(`.${t.options.classPrefix}speedchooser-selector`).querySelectorAll('input[type=radio]');
 				let oldSpeed = media.speed
