@@ -132,6 +132,12 @@ Object.assign(MediaElementPlayer.prototype, {
         // set aria states
         this.setAttribute('aria-selected', true);
         this.checked = true;
+        var speedX = String(radios[i].getAttribute('data-speed').replace(/\D+/g,""))
+        if (speedX === '2') {
+          speedX = '20'
+        }
+        angular.element('.mejs__speedchooser-selector li').removeClass('active');
+        angular.element(`.speed-${speedX}`).addClass('active');
 
         const otherRadios = this.closest(`.${t.options.classPrefix}speedchooser-selector`).querySelectorAll('input[type=radio]');
         let oldSpeed = media.speed
