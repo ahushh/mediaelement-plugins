@@ -128,12 +128,18 @@ Object.assign(MediaElementPlayer.prototype, {
 
     var radios = player.speedchooserButton.querySelectorAll('input[type=radio]');
 
-    for (var _i2 = 0, _total2 = radios.length; _i2 < _total2; _i2++) {
+    var _loop = function _loop(_i2, _total2) {
       // handle clicks to the source radio buttons
       radios[_i2].addEventListener('click', function () {
         // set aria states
         this.setAttribute('aria-selected', true);
         this.checked = true;
+        var speedX = String(radios[_i2].getAttribute('data-speed').replace(/\D+/g, ""));
+        if (speedX === '2') {
+          speedX = '20';
+        }
+        angular.element('.mejs__speedchooser-selector li').removeClass('active');
+        angular.element(".speed-" + speedX).addClass('active');
 
         var otherRadios = this.closest("." + t.options.classPrefix + "speedchooser-selector").querySelectorAll('input[type=radio]');
         var oldSpeed = media.speed;
@@ -166,6 +172,10 @@ Object.assign(MediaElementPlayer.prototype, {
           media.addEventListener('canplay', canPlayAfterSourceSwitchHandler);
         }
       });
+    };
+
+    for (var _i2 = 0, _total2 = radios.length; _i2 < _total2; _i2++) {
+      _loop(_i2, _total2);
     }
 
     // Handle click so that screen readers can toggle the menu
