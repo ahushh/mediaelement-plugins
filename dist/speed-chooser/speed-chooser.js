@@ -75,7 +75,7 @@ Object.assign(MediaElementPlayer.prototype, {
     player.speedchooserButton.addEventListener('mouseout', function () {
       hoverTimeout = setTimeout(function () {
         player.hideSourcechooserSelector();
-      }, 500);
+      }, 0);
     });
 
     // keyboard menu activation
