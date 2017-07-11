@@ -77,7 +77,7 @@ Object.assign(MediaElementPlayer.prototype, {
         player.hideSourcechooserSelector();
       }, 0);
     });
-
+    angular.element('.speed-1').addClass('active'); // initial speed
     // keyboard menu activation
     player.speedchooserButton.addEventListener('keydown', function (e) {
 
